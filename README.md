@@ -1,2 +1,2 @@
-# Stree-Rua-SITE
-Site do jogo StreetRua
+# Street-Rua
+Site do jogo Street Rua
