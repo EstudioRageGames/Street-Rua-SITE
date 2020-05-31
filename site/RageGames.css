@@ -106,3 +106,7 @@ div.Texto {
 .mb-1, .list-inline {
     text-align: center;
 }
+
+.jumbotron {
+  padding: 0;
+}
