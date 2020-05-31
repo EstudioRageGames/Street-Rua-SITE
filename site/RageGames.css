@@ -97,3 +97,12 @@ div.Texto {
 	font-weight: 700;
 	font-size: 200
 }
+
+.game-item, .dev-item {
+	margin-left:10%;
+	
+}
+
+.mb-1, .list-inline {
+    text-align: center;
+}
