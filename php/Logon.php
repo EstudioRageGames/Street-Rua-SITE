@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="autor" content="Estudio Rage Games">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Login</title>
+    <title>Logon</title>
 	
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
@@ -55,7 +55,7 @@
           <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" href="Login.php" >Login</a>
+          <a class="nav-link" href="Logon.php" >Logon</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
@@ -68,31 +68,7 @@
 
 <main role="main">
 	<br/><br/><br/>
-	<div class="col-md-5 order-md-12">
-	<form method="post" action="Login.php">
-	<div class="mb-3">
-          <label for="username">Usuário</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuário" required>
-            <div class="invalid-feedback" style="width: 100%;">
-              Seu nome de usuário é necessário.
-            </div>
-          </div>
-        </div>
-		<div class="mb-3">
-          <label for="password">Senha</label>
-          <input type="password" class="form-control" name="senha"	id="senha">
-          <div class="invalid-feedback">
-            Por favor, insira uma senha válida!
-          </div>
-        </div>
-		<input type="submit" name="b1" value="Entrar" />
-	</div>
-	</form>
-	<?php if(isset($_POST["b1"])) validarAcesso(); ?>
+	<div class='col-md-12 order-md-3'><br/><div class='alert alert-success' role='alert'>Login efetuado com sucesso</div></div>
 		
 	<br/><br/><br/>
   
