@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
@@ -53,7 +52,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="formulario-street-rua.html" >Beta</a>
+          <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
@@ -72,19 +71,19 @@
 
   <div class="row">
     <div class="col-md-12 order-md-3">
-      <h4 class="mb-3">Formulário</h4>
-      <form class="needs-validation" novalidate>
+      <h4 class="mb-3">Formulário de Cadastro</h4>
+      <form class="needs-validation" novalidate action="formulario-street-rua.php" method="post">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Nome</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="" value="" required>
             <div class="invalid-feedback">
               Seu nome é necessário.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Sobrenome</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" name="sobrenome"id="sobrenome" placeholder="" value="" required>
             <div class="invalid-feedback">
               Seu sobrenome é necessário.
             </div>
@@ -97,7 +96,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">@</span>
             </div>
-            <input type="text" class="form-control" id="username" placeholder="Usuário" required>
+            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuário" required>
             <div class="invalid-feedback" style="width: 100%;">
               Seu nome de usuário é necessário.
             </div>
@@ -106,15 +105,22 @@
 
         <div class="mb-3">
           <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="vc@exemplo.com">
+          <input type="email" class="form-control" name="email" id="email" placeholder="vc@exemplo.com">
           <div class="invalid-feedback">
             Por favor, insira um e-mail valido.
+          </div>
+        </div>
+		<div class="mb-3">
+          <label for="password">Senha</label>
+          <input type="password" class="form-control" name="senha"	id="senha">
+          <div class="invalid-feedback">
+            Por favor, insira uma senha válida!
           </div>
         </div>
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">País</label>
-            <select class="custom-select d-block w-100" id="country" required>
+            <select class="custom-select d-block w-100" name="pais" id="pais" required>
               <option value="">País...</option>
               <option>Brasil</option>
             </select>
@@ -124,7 +130,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="state">Estado</label>
-            <select class="custom-select d-block w-100" id="state" required>
+            <select class="custom-select d-block w-100" name="estado" id="estado" required>
               <option value="">Estado...</option>
               <option>AC</option>
 			  <option>AL</option>
@@ -161,15 +167,31 @@
         </div>
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="promo-info">
-          <label class="custom-control-label" for="promo-info">Aceito receber informações e promoções relacionadas ao jogo Street Rua</label>
+          <input type="checkbox" class="custom-control-input" name="promoinfo" id="promoinfo">
+          <label class="custom-control-label" for="promoinfo">Aceito receber informações e promoções relacionadas ao jogo Street Rua</label>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Se inscrever no BETA Fechado</button>
+        <button class="btn btn-primary btn-lg btn-block" name="b1" type="submit">Se inscrever no BETA Fechado</button>
       </form>
+	  	<?php
+		$con = new mysqli("localhost","root","", "street_rua");
+		if(isset($_POST["b1"])){
+			$usuario = $_POST["usuario"];
+			$nome	= $_POST["nome"];
+			$sobrenome = $_POST["sobrenome"];
+			$email	= $_POST["email"];
+			$senha	= $_POST["senha"];	
+			$sql = "insert into usuario(usuario, nome, sobrenome, email,senha) values('$usuario', '$nome', '$sobrenome', '$email', md5('$senha'))";
+			mysqli_query($con,$sql);
+			echo "<div class='alert alert-success' role='alert'>
+					Obrigado por se inscrever!!!
+					</div>";
+		}
+		//TODO Alerta para falha caso usuario já exista no BD
+		$con->close();
+		?>
     </div>
   </div>
-
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">&copy; 2019-2020 Estudio Rage Games</p>
     <ul class="list-inline">
