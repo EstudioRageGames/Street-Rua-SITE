@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="autor" content="Estudio Rage Games">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Futuro</title>
+    <title>Login</title>
 	
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
@@ -41,21 +41,21 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../site/Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="Towncity-História.html">História</a>
-            <a class="dropdown-item" href="Towncity-Personagens.html">Personagens</a>
-            <a class="dropdown-item" href="Towncity-Futuro.html">Futuro</a>
+            <a class="dropdown-item" href="../site/Towncity-História.html">História</a>
+            <a class="dropdown-item" href="../site/Towncity-Personagens.html">Personagens</a>
+            <a class="dropdown-item" href="../site/Towncity-Futuro.html">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../php/formulario-street-rua.php" >Beta</a>
+          <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" href="../php/Login.php" >Login</a>
+          <a class="nav-link" href="Login.php" >Login</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
@@ -67,37 +67,29 @@
 </header>
 
 <main role="main">
+	<br/><br/><br/>
+	<select id="usuarios"><?php montaLista();?></select>
+	<br/><br/>
+	<table border = "1">
+	<tr><td><b>código</b></td><td><b>usuario</b></td><td><b>nome</b></td><td><b>sobrenome</b></td><td><b>email</b></td></tr>
+	<?php montaTabela();?>
+	</table>
+	
+	<br/><br/><br/>
+	
+	<form method="post" action="Login.php">
+	<input type="text" name="busca" />
+	<input type="submit" name="b1" value="Ok" />
+	</form>
+	<br/>
+	<table border = "1">
+	<tr><td><b>código</b></td><td><b>usuario</b></td><td><b>nome</b></td><td><b>sobrenome</b></td><td><b>email</b></td></tr>
+	<?php montaBusca();?>
+	</table>
+	
+	<br/><br/><br/>
+  
 
-  <div class="container">
-    <img src="../imagens/Streetrua.jpg" class="img-fluid" width="100%" height="100%"><br/>
-    </br><p class="lead">No ano 2020, a humanidade se prepara para entrar na era da inteligência artificial, os avanços da tecnologia foram gigantescos. Contudo, o uso fora de controle de combustíveis fósseis e a poluição gerada por uma população de bilhões de pessoas tem seu preço.</p>
-
-	<p class="lead">A cidade de Towncity sofre com essa poluição. Constantemente sobrecarregada pelo despejo da sua principal fábrica, o clima da cidade entrou em colapso. </p>
-
-	<p class="lead">A população e os animais vêm tendo problemas com diversos desastres naturais, muitas vezes os fazendo brigar por território ou até mesmo pelo stress causado pelas mudanças de temperaturas. De dia, costuma-se fazer 40°C, enquanto á noite, a temperatura pode chegar a 0°C facilmente. Boa parte enlouqueceu, e passou a ter comportamentos agressivos.</p>
-
-	<p class="lead">Parte da cidade é contra essa fábrica. Buscando resgatar a natureza e voltar às vidas que tinham antes da construção dela, irão até o fim em busca de seus ideais.</p>
-
-	<p class="lead">Já outra parte é a favor desta fábrica, com o argumento de que a mudança que ela trouxe faz parte da evolução da cidade, que o retorno financeiro faz jus aos danos contra a natureza e que a mudança climática é natural no planeta e vem acontecendo desde sempre. </p>
-  </div><br/>
-
-
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-lg-4 dev-item">
-        <h2>Personagens</h2>
-        <p>Nessa cidade todos brigam, escolha o que mais gosta e lute pelo que acredita! </p>
-        <p><a class="btn btn-secondary" href="Towncity-Personagens.html" role="button">Conheça mais &raquo;</a></p>
-      </div>
-      <div class="col-lg-4 dev-item">
-        <h2>Futuro</h2>
-        <p>Travis ou Jairo, quem defenderá? </p>
-        <p><a class="btn btn-secondary" href="Towncity-Futuro.html" role="button">Escolha &raquo;</a></p>
-      </div>
-    <hr>
-  </div> <!-- /container -->
-  <br/>
 </main>
 
     <footer class="container">
@@ -112,3 +104,46 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script></body>
 </html>
+
+<?php
+function montaLista(){
+	$con = new mysqli("localhost", "root", "", "street_rua");
+	$sql = "select nome from usuario order by nome";
+	$resultado = mysqli_query($con, $sql);
+	while ($reg = mysqli_fetch_array($resultado)){
+		echo "<option>". $reg["nome"] ."</option>";
+	}
+	$con->close();
+}
+
+function montaTabela(){
+	$con = new mysqli("localhost", "root", "", "street_rua");
+	$sql = "select * from usuario order by codigo";
+	$resultado = mysqli_query($con, $sql);
+	while ($reg = mysqli_fetch_array($resultado)){
+		echo "<tr><td>". $reg["codigo"] ."</td>";
+		echo "<td>". $reg["usuario"] ."</td>";
+		echo "<td>". $reg["nome"] ."</td>";
+		echo "<td>". $reg["sobrenome"] ."</td>";
+		echo "<td>". $reg["email"] ."</td></tr>";
+	}
+	$con->close();
+}
+
+function montaBusca(){
+	if(isset($_POST["b1"])){
+	$con = new mysqli("localhost", "root", "", "street_rua");
+	$busca = $_POST["busca"];
+	$sql = "select * from usuario where nome like '%$busca%' or email like '%$busca%' order by codigo";
+	$resultado = mysqli_query($con, $sql);
+	while ($reg = mysqli_fetch_array($resultado)){
+		echo "<tr><td>". $reg["codigo"] ."</td>";
+		echo "<td>". $reg["usuario"] ."</td>";
+		echo "<td>". $reg["nome"] ."</td>";
+		echo "<td>". $reg["sobrenome"] ."</td>";
+		echo "<td>". $reg["email"] ."</td></tr>";
+	}
+	$con->close();
+	}
+}
+?>

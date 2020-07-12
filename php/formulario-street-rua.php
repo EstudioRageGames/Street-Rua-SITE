@@ -41,18 +41,21 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../site/Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="Towncity-História.html">História</a>
-            <a class="dropdown-item" href="Towncity-Personagens.html">Personagens</a>
-            <a class="dropdown-item" href="Towncity-Futuro.html">Futuro</a>
+            <a class="dropdown-item" href="../site/Towncity-História.html">História</a>
+            <a class="dropdown-item" href="../site/Towncity-Personagens.html">Personagens</a>
+            <a class="dropdown-item" href="../site/Towncity-Futuro.html">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link" href="Login.php" >Login</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
@@ -64,7 +67,7 @@
 </header><br/>
     <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" href="Street-Rua-SITE.html" src="../imagens/logo streetrua.png" alt="" height="200px">
+    <img class="d-block mx-auto mb-4" href="../site/Street-Rua-SITE.html" src="../imagens/logo streetrua.png" alt="" height="200px">
     <h2>BETA Fechado</h2>
     <p class="lead">Preencha o Formulário abaixo para se inscrever no nosso BETA Fechado, entraremos em contato por e-mail com as informações para adquirir o jogo caso tenha saido selecionado!</p>
   </div>
@@ -188,6 +191,17 @@
 					</div>";
 		}
 		//TODO Alerta para falha caso usuario já exista no BD
+		/*
+		USUARIO JA CADASTRADO
+		<div class="alert alert-danger" role="alert">
+		Um simples alerta danger. Olha só!
+		</div>
+		
+		EMAIL JA CADASTRADO
+		<div class="alert alert-warning" role="alert">
+		Um simples alerta warning. Olha só!
+		</div>
+		*/
 		$con->close();
 		?>
     </div>
