@@ -1,4 +1,10 @@
-<!doctype html>
+<?php
+	session_start();
+	if(isset($_SESSION["codigo"])==false){
+		header("location: login.php");
+	}
+?>
+
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
@@ -54,9 +60,17 @@
         <li class="nav-item">
           <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
         </li>
-		<li class="nav-item">
-          <a class="nav-link" href="Logon.php" >Logon</a>
-        </li>
+		<?php
+			if(isset($_SESSION["codigo"])== true){
+				echo "<li class='nav-item'>
+				<a class='nav-link' href='Logon.php' >Logon</a>
+				</li>";
+			} else {
+				echo "<li class='nav-item'>
+				<a class='nav-link' href='Login.php' >Login</a>
+				</li>";
+			}
+		?>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
@@ -68,8 +82,11 @@
 
 <main role="main">
 	<br/><br/><br/>
+	<a href="logoff.php">Logoff</a>
 	<div class='col-md-12 order-md-3'><br/><div class='alert alert-success' role='alert'>Login efetuado com sucesso</div></div>
-		
+	<?php 
+		echo session_id();
+	?>
 	<br/><br/><br/>
   
 
@@ -87,26 +104,3 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script></body>
 </html>
-
-<?php
-function validarAcesso(){
-	$con = new mysqli("localhost","root","", "street_rua");	
-	$usuario = $_POST["usuario"];
-	$senha = $_POST["senha"];
-	$sql = "select * from usuario where usuario='$usuario' and senha=md5('$senha')";
-	//echo $sql;
-	$resultado = mysqli_query($con, $sql);
-	if($reg = mysqli_fetch_array($resultado)){
-		session_start();
-		$_SESSION["codigo"] = $reg["codigo"];
-		$_SESSION["nome"] = $reg["nome"];
-		header("location: Logon.php");
-		echo "<div class='col-md-5 order-md-3'><br/><div class='alert alert-success' role='alert'>
-				Login efetuado</div></div>";
-	} else {
-		echo "<div class='col-md-5 order-md-3'><br/><div class='alert alert-danger' role='alert'>
-				Usuário ou Senha inválidos!</div></div>";	
-	}
-	$con->close();
-}
-?>

@@ -54,9 +54,18 @@
         <li class="nav-item">
           <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
         </li>
-		<li class="nav-item">
-          <a class="nav-link" href="Login.php" >Login</a>
-        </li>
+		<?php
+			session_start();
+				if(isset($_SESSION["codigo"])== true){
+					echo "<li class='nav-item'>
+					<a class='nav-link' href='Logon.php' >Logon</a>
+					</li>";
+				} else if (isset($_SESSION["codigo"])== false){
+					echo "<li class='nav-item'>
+					<a class='nav-link' href='Login.php' >Login</a>
+					</li>";
+				}
+		?>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
@@ -92,7 +101,8 @@
 		<input type="submit" name="b1" value="Entrar" />
 	</div>
 	</form>
-	<?php if(isset($_POST["b1"])) validarAcesso(); ?>
+	
+	<?php if(isset($_POST["b1"])) validarAcesso();?>
 		
 	<br/><br/><br/>
   
