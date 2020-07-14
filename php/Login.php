@@ -34,38 +34,35 @@
   </head>
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="Street-Rua-SITE.html">Street Rua</a>
+    <a class="navbar-brand" href="Street-Rua-SITE.php">Street Rua</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../site/Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../site/Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="../site/Towncity-História.html">História</a>
-            <a class="dropdown-item" href="../site/Towncity-Personagens.html">Personagens</a>
-            <a class="dropdown-item" href="../site/Towncity-Futuro.html">Futuro</a>
+            <a class="dropdown-item" href="../site/Towncity-História.php">História</a>
+            <a class="dropdown-item" href="../site/Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="../site/Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
-        </li>
+        </li><li class="nav-item">
 		<?php
 			session_start();
 				if(isset($_SESSION["codigo"])== true){
-					echo "<li class='nav-item'>
-					<a class='nav-link' href='Logon.php' >Logon</a>
-					</li>";
+					echo "<a class='nav-link' href='Logon.php' >Logon</a>"
+					;
 				} else if (isset($_SESSION["codigo"])== false){
-					echo "<li class='nav-item'>
-					<a class='nav-link' href='Login.php' >Login</a>
-					</li>";
+					echo "<a class='nav-link' href='Login.php' >Login</a>";
 				}
-		?>
+		?></li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">

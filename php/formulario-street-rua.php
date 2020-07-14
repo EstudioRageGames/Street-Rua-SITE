@@ -34,21 +34,21 @@
   <body class="bg-light">
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="Street-Rua-SITE.html">Street Rua</a>
+    <a class="navbar-brand" href="Street-Rua-SITE.php">Street Rua</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../site/Street-Rua-SITE.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../site/Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="../site/Towncity-História.html">História</a>
-            <a class="dropdown-item" href="../site/Towncity-Personagens.html">Personagens</a>
-            <a class="dropdown-item" href="../site/Towncity-Futuro.html">Futuro</a>
+            <a class="dropdown-item" href="../site/Towncity-História.php">História</a>
+            <a class="dropdown-item" href="../site/Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="../site/Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
@@ -67,15 +67,22 @@
 </header><br/>
     <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" href="../site/Street-Rua-SITE.html" src="../imagens/logo streetrua.png" alt="" height="200px">
+    <img class="d-block mx-auto mb-4" href="../site/Street-Rua-SITE.php" src="../imagens/logo streetrua.png" alt="" height="200px">
     <h2>BETA Fechado</h2>
     <p class="lead">Preencha o Formulário abaixo para se inscrever no nosso BETA Fechado, entraremos em contato por e-mail com as informações para adquirir o jogo caso tenha saido selecionado!</p>
   </div>
-
+	  	<?php
+		$con = new mysqli("localhost","root","", "street_rua");
+		if(isset($_POST["b1"])){
+			echo "<div class='alert alert-success' role='alert'>
+					Obrigado por se inscrever!!!
+					</div>";
+		}
+		?>
   <div class="row">
     <div class="col-md-12 order-md-3">
       <h4 class="mb-3">Formulário de Cadastro</h4>
-      <form class="needs-validation" novalidate action="formulario-street-rua.php" method="post">
+      <form class="needs-validation" novalidate action="formulario-street-rua.php" action="envio.php" method="post">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Nome</label>
@@ -177,6 +184,7 @@
         <button class="btn btn-primary btn-lg btn-block" name="b1" type="submit">Se inscrever no BETA Fechado</button>
       </form>
 	  	<?php
+	
 		$con = new mysqli("localhost","root","", "street_rua");
 		if(isset($_POST["b1"])){
 			$usuario = $_POST["usuario"];
@@ -186,10 +194,10 @@
 			$senha	= $_POST["senha"];	
 			$sql = "insert into usuario(usuario, nome, sobrenome, email,senha) values('$usuario', '$nome', '$sobrenome', '$email', md5('$senha'))";
 			mysqli_query($con,$sql);
-			echo "<div class='alert alert-success' role='alert'>
-					Obrigado por se inscrever!!!
-					</div>";
 		}
+		
+		require_once('envio.php');
+		email();
 		//TODO Alerta para falha caso usuario já exista no BD
 		/*
 		USUARIO JA CADASTRADO
