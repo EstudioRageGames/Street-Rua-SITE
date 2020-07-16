@@ -41,14 +41,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../site/Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="../site/Towncity-História.php">História</a>
-            <a class="dropdown-item" href="../site/Towncity-Personagens.php">Personagens</a>
-            <a class="dropdown-item" href="../site/Towncity-Futuro.php">Futuro</a>
+            <a class="dropdown-item" href="Towncity-História.php">História</a>
+            <a class="dropdown-item" href=".Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
@@ -73,8 +73,8 @@
 </header>
 
 <main role="main">
-	<br/><br/><br/>
-	<div class="col-md-5 order-md-12">
+	<br/>
+	<div class="col-md-2 order-md-12">
 	<form method="post" action="Login.php">
 	<div class="mb-3">
           <label for="username">Usuário</label>

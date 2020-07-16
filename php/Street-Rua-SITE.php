@@ -54,14 +54,17 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../php/formulario-street-rua.php" >Beta</a>
-        </li><li class="nav-item">
+        </li>
+		<li class="nav-item">
 		<?php
+			session_start();
 			if(isset($_SESSION["codigo"])== true){
-				echo "<a class='nav-link' href='Logon.php' >Logon</a>";
+				echo "<a class='nav-link' href='Logon.php'> Logon </a>";
 			} else {
-				echo "<a class='nav-link' href='Login.php' >Login</a>";
+				echo "<a class='nav-link' href='Login.php'> Login </a>";
 			}
-		?></li>
+		?>
+		</li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
@@ -90,21 +93,21 @@
         </div>
       </div>
       <div class="carousel-item">
-                <img src="../imagens/cena_de_luta_carrosel.png" class="img-fluid" width="500" height="500">
+                <img src="../imagens/Fight1.png" class="img-fluid" width="500" height="500">
         <div class="container">
           <div class="carousel-caption">
             <h1>Street Rua</h1>
-            <p>Street Rua é um jogo de luta.....</p>
-            <p><a class="btn btn-lg btn-primary" href="Towncity.php" role="button">Towncity</a></p>
+            <p>Street Rua é um jogo de luta multiplayer para você se divertir com seus amigos!</p>
+            <p><a class="btn btn-lg btn-primary" href="Towncity-História.php" role="button">Towncity</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../imagens/Streetrua.jpg" class="img-fluid" width="500" height="500">
+        <img src="../imagens/SelectionPlayers.png" class="img-fluid" width="500" height="500">
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>Beta Fechado!</h1>
-            <p>Inscreva-se no formulário para concorrer a uma chave de acesso para o Beta Fechado de Street Rua</p>
+            <p>Preencha o formulário para se inscrever no beta fechado, realize o Login para baixar agora!</p>
             <p><a class="btn btn-lg btn-primary" href="formulario-street-rua.php" role="button">Formulário</a></p>
           </div>
         </div>
@@ -130,7 +133,7 @@
         <p class="lead">Jogo de Luta Multiplayer com mecânicas divertidas e muitos personagens divertidos. Street RUA é um jogo com gráficos 2d e gameplay clássica <i>Beat 'em up</i>, com batalhas emocionantes, traga seus amigos e prove quem é o Melhor!</p>
       </div>
       <div class="col-md-5">
-        <img src="../imagens/cena_de_luta.png" class="img-fluid" width="500" height="500">
+        <img src="../imagens/Win.png" class="img-fluid" width="500" height="500">
 		</div>
     </div>
 
@@ -142,7 +145,7 @@
         <p class="lead">Na cidade de Towncity uma fábrica é responsável pela poluição desenfreada que está causando mudanças climáticas irreversíveis. Devido a estas mudanças, a população começou a criar comportamentos agressivos que dividiu a cidade em dois grupos: Os que defendem a fábrica e os que são contra ela. A cidade está sitiada e brigas ocorrem por toda área, venha defender o lado que acredite ser o melhor!</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img src="../imagens/town.jpg" class="img-fluid" width="500" height="500">
+        <img src="../imagens/Menu.png" class="img-fluid" width="500" height="500">
 		</div>
     </div>
 
@@ -154,7 +157,7 @@
         <p class="lead">Ao combinar estilos de jogos chegamos a uma gameplay totalmente divertida, com mecânicas dinâmicas e um alto potêncial de diversão e competição entre você e seus amigos.</p>
       </div>
       <div class="col-md-5">
-        <img src="../imagens/scene.jpg" class="img-fluid" width="500" height="500">
+        <img src="../imagens/Soco.png" class="img-fluid" width="500" height="500">
 		</div>
     </div>
 	   <hr class="featurette-divider">

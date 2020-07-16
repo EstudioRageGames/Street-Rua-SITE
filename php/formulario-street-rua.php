@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
@@ -5,8 +6,8 @@
     <meta name="description" content="">
     <meta name="autor" content="Estudio Rage Games">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Formulário Beta</title>
-	
+    <title>Street Rua</title>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
     <!-- Bootstrap core CSS -->
@@ -31,7 +32,7 @@
     <!-- Custom styles for this template -->
     <link href="RageGames.css" rel="stylesheet">
   </head>
-  <body class="bg-light">
+  <body>
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="Street-Rua-SITE.php">Street Rua</a>
@@ -41,22 +42,29 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../site/Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="../site/Towncity-História.php">História</a>
-            <a class="dropdown-item" href="../site/Towncity-Personagens.php">Personagens</a>
-            <a class="dropdown-item" href="../site/Towncity-Futuro.php">Futuro</a>
+            <a class="dropdown-item" href="Towncity-História.php">História</a>
+            <a class="dropdown-item" href="Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="formulario-street-rua.php" >Beta</a>
+          <a class="nav-link" href="../php/formulario-street-rua.php" >Beta</a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" href="Login.php" >Login</a>
-        </li>
+		<?php
+			session_start();
+			if(isset($_SESSION["codigo"])== true){
+				echo "<a class='nav-link' href='Logon.php'> Logon </a>";
+			} else {
+				echo "<a class='nav-link' href='Login.php'> Login </a>";
+			}
+		?>
+		</li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
@@ -64,20 +72,50 @@
       </form>
     </div>
   </nav>
-</header><br/>
+</header>
+
     <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" href="../site/Street-Rua-SITE.php" src="../imagens/logo streetrua.png" alt="" height="200px">
+    <img class="d-block mx-auto mb-4" href="Street-Rua-SITE.php" src="../imagens/logo streetrua.png" alt="" height="200px">
     <h2>BETA Fechado</h2>
     <p class="lead">Preencha o Formulário abaixo para se inscrever no nosso BETA Fechado, entraremos em contato por e-mail com as informações para adquirir o jogo caso tenha saido selecionado!</p>
   </div>
 	  	<?php
 		$con = new mysqli("localhost","root","", "street_rua");
 		if(isset($_POST["b1"])){
-			echo "<div class='alert alert-success' role='alert'>
+			$usuario = $_POST["usuario"];
+			$nome	= $_POST["nome"];
+			$sobrenome = $_POST["sobrenome"];
+			$email	= $_POST["email"];
+			$senha	= $_POST["senha"];	
+			$userVer = "SELECT * FROM usuario WHERE usuario = '{$usuario}'";
+			$emailVer = "SELECT * FROM usuario WHERE email = '{$email}'";
+			$query = $con->query($userVer);
+			$query2 = $con->query($emailVer);
+			if($query->num_rows<1 and $query2->num_rows<1){
+				$sql = "insert into usuario(usuario, nome, sobrenome, email,senha) values('$usuario', '$nome', '$sobrenome', '$email', md5('$senha'))";
+				mysqli_query($con,$sql);
+				echo "<div class='alert alert-success' role='alert'>
 					Obrigado por se inscrever!!!
 					</div>";
+			}else if ($query->num_rows>0 and $query2->num_rows<1){
+				echo "<div class='alert alert-danger' role='alert'>
+					Usuário já cadastrado!
+					</div>";		
+			}else if ($query->num_rows<1 and $query2->num_rows>0){
+				echo "<div class='alert alert-danger' role='alert'>
+					E-mail já cadastrado!
+					</div>";
+			}else{
+				echo "<div class='alert alert-danger' role='alert'>
+					Usuário já cadastrado!
+					</div>";		
+				echo "<div class='alert alert-danger' role='alert'>
+					E-mail já cadastrado!
+					</div>";
+			}
 		}
+
 		?>
   <div class="row">
     <div class="col-md-12 order-md-3">
@@ -184,20 +222,9 @@
         <button class="btn btn-primary btn-lg btn-block" name="b1" type="submit">Se inscrever no BETA Fechado</button>
       </form>
 	  	<?php
-	
-		$con = new mysqli("localhost","root","", "street_rua");
-		if(isset($_POST["b1"])){
-			$usuario = $_POST["usuario"];
-			$nome	= $_POST["nome"];
-			$sobrenome = $_POST["sobrenome"];
-			$email	= $_POST["email"];
-			$senha	= $_POST["senha"];	
-			$sql = "insert into usuario(usuario, nome, sobrenome, email,senha) values('$usuario', '$nome', '$sobrenome', '$email', md5('$senha'))";
-			mysqli_query($con,$sql);
-		}
 		
-		require_once('envio.php');
-		email();
+		//require_once('envio.php');
+		//email();
 		//TODO Alerta para falha caso usuario já exista no BD
 		/*
 		USUARIO JA CADASTRADO

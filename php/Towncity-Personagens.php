@@ -42,14 +42,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../site/Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="Street-Rua-SITE.php">Home <span class="sr-only">(current)</span></a>
         </li>
 		<li class="nav-item dropdown">
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="../site/Towncity-História.php">História</a>
-            <a class="dropdown-item" href="../site/Towncity-Personagens.php">Personagens</a>
-            <a class="dropdown-item" href="../site/Towncity-Futuro.php">Futuro</a>
+            <a class="dropdown-item" href="Towncity-História.php">História</a>
+            <a class="dropdown-item" href="Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
         <li class="nav-item">
@@ -81,9 +81,6 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-	  	<?php 
-		echo session_id();
-	?>
         <h2 class="featurette-heading">Marvin <span class="text-muted" >- O Pastor</span></h2>
         <p class="lead">Cresceu em família conservadora e extremamente religiosa e desde sempre sonhou em ser pastor. Acha que as mudanças climáticas são castigos de Deus devido às ações da humanidade e seu descaso com o meio ambiente, construindo cada vez mais fábricas que poluem os ares, esgotos que poluem os rios e mares e o crescimento desenfreado, fazendo com que seja preciso diminuir o número de florestas para comportar o número de pessoas na Terra. Acha que os culpados são aqueles que não seguem sua doutrina e quer purificá-los! </p>
       </div>
