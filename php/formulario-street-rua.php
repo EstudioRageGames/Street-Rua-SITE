@@ -114,6 +114,8 @@
 					E-mail já cadastrado!
 					</div>";
 			}
+			require_once('envio.php');
+			$con->close();
 		}
 
 		?>
@@ -222,22 +224,7 @@
         <button class="btn btn-primary btn-lg btn-block" name="b1" type="submit">Se inscrever no BETA Fechado</button>
       </form>
 	  	<?php
-		
-		//require_once('envio.php');
-		//email();
-		//TODO Alerta para falha caso usuario já exista no BD
-		/*
-		USUARIO JA CADASTRADO
-		<div class="alert alert-danger" role="alert">
-		Um simples alerta danger. Olha só!
-		</div>
-		
-		EMAIL JA CADASTRADO
-		<div class="alert alert-warning" role="alert">
-		Um simples alerta warning. Olha só!
-		</div>
-		*/
-		$con->close();
+
 		?>
     </div>
   </div>
