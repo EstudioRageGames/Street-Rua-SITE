@@ -47,7 +47,7 @@
 		  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Towncity</a>
 		  <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="Towncity-História.php">História</a>
-            <a class="dropdown-item" href=".Towncity-Personagens.php">Personagens</a>
+            <a class="dropdown-item" href="Towncity-Personagens.php">Personagens</a>
             <a class="dropdown-item" href="Towncity-Futuro.php">Futuro</a>
           </div>
         </li>
