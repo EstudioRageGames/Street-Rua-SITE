@@ -116,3 +116,11 @@ div.Texto {
 }
 
 .lh-condensed { line-height: 1.25; }
+
+ table.lgon_tt tr td  { padding:orange; }
+ 
+.nome_p {text-transform: capitalize;}
+
+.perfilbox {margin-top: 5%; margin-bottom: 5%;}
+
+.fotoperfil {margin-left:15%;}

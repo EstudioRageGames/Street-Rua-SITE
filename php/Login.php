@@ -131,6 +131,9 @@ function validarAcesso(){
 		session_start();
 		$_SESSION["codigo"] = $reg["codigo"];
 		$_SESSION["nome"] = $reg["nome"];
+		$_SESSION["email"] = $reg["email"];
+		$_SESSION["usuario"] = $reg["usuario"];
+		$_SESSION["sobrenome"] = $reg["sobrenome"];
 		header("location: Logon.php");
 		echo "<div class='col-md-5 order-md-3'><br/><div class='alert alert-success' role='alert'>
 				Login efetuado</div></div>";

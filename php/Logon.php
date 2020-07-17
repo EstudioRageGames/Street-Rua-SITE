@@ -3,7 +3,7 @@
 	if(isset($_SESSION["codigo"])==false){
 		header("location: login.php");
 	}
-?>
+?>4
 
 <html lang="pt-BR">
   <head>
@@ -38,6 +38,9 @@
     <!-- Custom styles for this template -->
     <link href="RageGames.css" rel="stylesheet">
   </head>
+   <body>
+   <div class="container">
+  
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="Street-Rua-SITE.php">Street Rua</a>
@@ -55,6 +58,7 @@
             <a class="dropdown-item" href="Towncity-História.php">História</a>
             <a class="dropdown-item" href="Towncity-Personagens.php">Personagens</a>
             <a class="dropdown-item" href="Towncity-Futuro.php">Futuro</a>
+	
           </div>
         </li>
         <li class="nav-item">
@@ -75,8 +79,28 @@
     </div>
   </nav>
 </header>
+   <div class="row">
+  
+   <div class='col-md-3'></div>
+   	<div class='col-md-2 perfilbox'>
+	<div class="foto"> <img src="../imagens/No-picture.png" class="img-fluid rounded-circle fotoperfil" width="90" height="90"></div>
+	<p class="usuario"> <?php  echo "Usuário: ". $_SESSION["usuario"]  ?></p>
+	</div>
+	<div class='col-md-4 perfilbox'>
+	<table class="lgon_tt">
+	<th class="perfil">Perfil</th>
+	<tr ><?php  echo "<td class='nome_p'> Nome completo: </td><td class='nome_p'>". $_SESSION["nome"] .' '. $_SESSION["sobrenome"];   ?> </td> </tr>
+	<tr class="email"><?php  echo "<td>E-Mail: </td><td>". $_SESSION["email"] ;  ?> </td>  </tr>
+	<tr class="Sessão"><?php  echo "<td>Sessão: </td><td> "  ?>   </tr>
+	
+	</table>
+	</div>
+	 </div>
 
 <main role="main">
+	
+
+
 	<br/><div class='col-md-12 order-md-3'><div class='alert alert-success' role='alert'>Login efetuado com sucesso</div><br/>
 	<a href="../game/Street-Rua-1.0.0.rar" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Download</a>
 	<a href="Logoff.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Logoff</a>
@@ -84,7 +108,9 @@
 	<br/><br/><br/>
 
 </main>
-
+ </div>
+</div>
+</body>
     <footer class="container">
 	<p class="float-right"><a href="#">Topo</a></p>
     <p class="mb-1">&copy; 2019-2020 Estudio Rage Games</p>
